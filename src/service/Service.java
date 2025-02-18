@@ -128,6 +128,11 @@ public class Service {
     }
 
 
+    /**
+     * filters the Characters by their region
+     * @param region, specifies the region of the characters
+     * @return filteredCharacters, an array that contains the Characters from a specific region
+     */
     public List<Character> filterByRegion(String region) {
         List<Character> filteredCharacters = new ArrayList<>();
         List<Character> characters = characterRepository.getAll();
@@ -158,6 +163,13 @@ public class Service {
         return filteredCharacters;
     }
 
+
+    /**
+     * gets the products of a character and sorts them either ascending or descending
+     * @param characterId, Id of the character
+     * @param mode, the way you want to sort this array
+     * @return
+     */
     public ArrayList<Product> sortProductsByPriceForCharacter(int characterId, int mode) {
 
         Character character = characterRepository.read(characterId);
