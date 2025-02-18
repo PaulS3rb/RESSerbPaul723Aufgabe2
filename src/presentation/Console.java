@@ -1,6 +1,7 @@
 package presentation;
 
 //import model.Character;
+import model.Character;
 import model.Product;
 
 import service.Service;
@@ -37,14 +38,14 @@ public class Console {
         System.out.println("9. Delete a Character");
         System.out.println("10. Show all Characters");
         System.out.println("11. Buy a product");
-        System.out.println("12. Filter characters by location");
+        System.out.println("12. Filter characters by region");
         System.out.println("13. Filter characters by product bought from a specific universe");
         System.out.println("14. Sort products for a specific character ascending or descending");
         choice = Integer.parseInt(System.console().readLine());
         String name, universe;
         double price;
         int id;
-
+        Character character;
         switch (choice) {
             case 1:
                 System.out.println("Please enter the name of the product: ");
@@ -89,6 +90,53 @@ public class Console {
                 for (Product product1 : products) {
                     System.out.println(product1);
                 }
+                showMenu();
+
+
+            case 6:
+                System.out.println("Please enter the name of the character: ");
+                name = System.console().readLine();
+                System.out.println("Please enter the region of the character: ");
+                String ort = System.console().readLine();
+                service.addCharacter(name, ort);
+                showMenu();
+
+            case 7:
+                System.out.println("Please enter the id of the character: ");
+                id = Integer.parseInt(System.console().readLine());
+                character = service.getCharacter(id);
+                System.out.println(character);
+                showMenu();
+
+            case 8:
+                System.out.println("Please enter the id of the character: ");
+                id = Integer.parseInt(System.console().readLine());
+                System.out.println("Please enter the name of the character: ");
+                name = System.console().readLine();
+                System.out.println("Please enter the region of the character: ");
+                ort = System.console().readLine();
+                service.updateCharacter(id, name, ort);
+                showMenu();
+            case 9:
+                System.out.println("Please enter the id of the character: ");
+                id = Integer.parseInt(System.console().readLine());
+                service.deleteCharacter(id);
+                showMenu();
+            case 10:
+                List<model.Character> characters = new ArrayList<>();
+                characters = service.getAllCharacter();
+                for(Character character1 : characters)
+                {
+                    System.out.println(character1);
+                }
+                showMenu();
+
+            case 11:
+                System.out.println("Please enter the id of the character: ");
+                int characterId = Integer.parseInt(System.console().readLine());
+                System.out.println("Please enter the id of the product: ");
+                int productId = Integer.parseInt(System.console().readLine());
+                service.orderProduct(characterId,productId);
                 showMenu();
 
         }

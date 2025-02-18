@@ -1,6 +1,8 @@
 package service;
 
 import java.util.*;
+
+import model.Character;
 import model.Product;
 //import model.Character;
 import repository.IRepository;
@@ -13,10 +15,13 @@ public class Service {
 
 
     private IRepository<Product> productRepository;
+    private IRepository<Character> characterRepository;
 
     public Service()
     {
         this.productRepository =Repository.getInstance(Product.class);
+        this.characterRepository =Repository.getInstance(Character.class);
+
         List<Product> produkte = new ArrayList<>();
         produkte.add(new Product(1,"Mjolnir", 500.0, "Asgard"));
         produkte.add(new Product(2,"Vibranium-Schild", 700.0, "Wakanda"));
@@ -59,6 +64,36 @@ public class Service {
         productRepository.delete(id);
     }
 
+    public void addCharacter(String name, String region) {
+        int id=characterRepository.getNextId();
+        model.Character character=new model.Character(id, name, region);
+        characterRepository.create(character);
+    }
 
+    public model.Character getCharacter(int id) {
+        return characterRepository.read(id);
+    }
+
+    public void updateCharacter(int id, String name, String region) {
+        model.Character character=new model.Character(id, name, region);
+        characterRepository.update(character);
+    }
+
+    public void deleteCharacter(int id) {
+        characterRepository.delete(id);
+    }
+
+    public List<Character> getAllCharacter() {
+        return characterRepository.getAll();
+    }
+
+    public void orderProduct(int characterId, int productId) {
+        Character character=characterRepository.read(characterId);
+        ArrayList<Product> products = character.getProducts();
+        Product product=productRepository.read(productId);
+        products.add(product);
+        character.setProducts(products);
+        characterRepository.update(character);
+    }
 
 }
