@@ -139,6 +139,21 @@ public class Console {
                 service.orderProduct(characterId,productId);
                 showMenu();
 
+            case 12:
+                System.out.println("Please enter the location:");
+                String location = System.console().readLine();
+                characters = service.filterByRegion(location);
+                for(Character character1 : characters)
+                {
+                    System.out.println(character1);
+                }
+                showMenu();
+
+
+            case 13:
+
+
+
         }
     }
 }

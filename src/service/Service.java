@@ -130,4 +130,16 @@ public class Service {
         characterRepository.update(character);
     }
 
+
+    public List<Character> filterByRegion(String region) {
+        List<Character> filteredCharacters = new ArrayList<>();
+        List<Character> characters = characterRepository.getAll();
+        for (Character character : characters) {
+            if (character.getRegion().equals(region)) {
+                filteredCharacters.add(character);
+            }
+        }
+        return filteredCharacters;
+    }
+
 }
