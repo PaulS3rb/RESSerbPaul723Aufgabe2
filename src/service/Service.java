@@ -154,7 +154,7 @@ public class Service {
 
             }
         }
-        filteredCharacters.sort((p1,p2)->p2.getName().compareToIgnoreCase(p1.getName()));
+        filteredCharacters.sort((p1,p2)->p1.getName().compareToIgnoreCase(p2.getName()));
         return filteredCharacters;
     }
 
