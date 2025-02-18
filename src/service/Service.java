@@ -38,6 +38,40 @@ public class Service {
             productRepository.create(p);
         }
 
+        // Initialisierung der Charactere
+        List<Character> charaktere = new ArrayList<>();
+        Character c1 = new Character(1, "Thor", "Asgard");
+
+        characterRepository.create(c1);
+        this.orderProduct(1,1); // Mjolnir
+        this.orderProduct(1,6); // Norn Stones
+        this.orderProduct(1,10); // Darkhold
+
+        Character c2 = new Character(2, "Black Panther", "Wakanda");
+        characterRepository.create(c2);
+
+        this.orderProduct(2,2); // Vibranium-Schild
+        this.orderProduct(2,8); // X-Gene Serum
+        Character c3 = new Character(3, "Iron Man", "Terra");
+        characterRepository.create(c3);
+        this.orderProduct(3,5); // Arc-Reaktor
+        this.orderProduct(3,7); // Quantum Suit
+        this.orderProduct(3,4); // Web-Shooter
+        Character c4 = new Character(4, "Spider-Man", "Terra");
+        characterRepository.create(c4);
+        this.orderProduct(4,4); // Web-Shooter
+        this.orderProduct(4,9); // Cosmic Cube
+        Character c5 = new Character(5, "Doctor Strange", "Multiverse");
+        characterRepository.create(c5);
+        this.orderProduct(5,10); // Darkhold
+        this.orderProduct(5,9); // Cosmic Cube
+        this.orderProduct(5,3); // Infinity Gauntlet
+//        charaktere.add(c1);
+//        charaktere.add(c2);
+//        charaktere.add(c3);
+//        charaktere.add(c4);
+//        charaktere.add(c5);
+
     }
 
 
