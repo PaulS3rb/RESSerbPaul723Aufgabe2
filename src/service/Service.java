@@ -165,10 +165,10 @@ public class Service {
 
 
     /**
-     * gets the products of a character and sorts them either ascending or descending
+     * gets the products of a character and sorts them either ascending or descending by price
      * @param characterId, Id of the character
      * @param mode, the way you want to sort this array
-     * @return
+     * @return products, an array that contains the products of a character sorted ascending or descending by price
      */
     public ArrayList<Product> sortProductsByPriceForCharacter(int characterId, int mode) {
 
