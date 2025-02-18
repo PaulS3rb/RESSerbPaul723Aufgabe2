@@ -17,33 +17,44 @@ public class Service {
     public Service()
     {
         this.productRepository =Repository.getInstance(Product.class);
-
+        List<Product> produkte = new ArrayList<>();
+//        produkte.add(new Product("Mjolnir", 500.0, "Asgard"));
+//        produkte.add(new Product("Vibranium-Schild", 700.0, "Wakanda"));
+//        produkte.add(new Product("Infinity Gauntlet", 10000.0, "Titan"));
+//        produkte.add(new Product("Web-Shooter", 250.0, "Terra"));
+//        produkte.add(new Product("Arc-Reaktor", 1500.0, "Terra"));
+//        produkte.add(new Product("Norn Stones", 1200.0, "Asgard"));
+//        produkte.add(new Product("Quantum Suit", 3000.0, "Terra"));
+//        produkte.add(new Product("X-Gene Serum", 850.0, "X-Mansion"));
+//        produkte.add(new Product("Cosmic Cube", 9000.0, "Multiverse"));
+//        produkte.add(new Product("Darkhold", 2000.0, "Multiverse"));
 
     }
 
 
-    public void addProdukt(String name, int price, String universe) {
+    public void addProduct(String name, double price, String universe) {
         int id= productRepository.getNextId();
         Product produkt= new Product(id,name, price, universe);
         productRepository.create(produkt);
     }
 
-    public Product getProdukt(int id) {
+    public Product getProduct(int id) {
         return productRepository.read(id);
     }
 
-    public void updateProdukt(int id, String name, int price, String universe) {
+    public void updateProduct(int id, String name, double price, String universe) {
         Product produkt = new Product(id, name, price, universe);
         productRepository.update(produkt);
     }
 
-    public ArrayList<Product> getAllProdukts() {
+    public ArrayList<Product> getAllProducts() {
         return (ArrayList<Product>) productRepository.getAll();
     }
 
-    public void deleteProdukt(int id) {
+    public void deleteProduct(int id) {
         productRepository.delete(id);
     }
+
 
 
 }

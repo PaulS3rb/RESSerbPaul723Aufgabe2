@@ -42,7 +42,7 @@ public class Console {
         System.out.println("14. Sort products for a specific character ascending or descending");
         choice = Integer.parseInt(System.console().readLine());
         String name, universe;
-        int price;
+        double price;
         int id;
 
         switch (choice) {
@@ -50,16 +50,16 @@ public class Console {
                 System.out.println("Please enter the name of the product: ");
                 name = System.console().readLine();
                 System.out.println("Please enter the price of the product: ");
-                price = Integer.parseInt(System.console().readLine());
+                price = Double.parseDouble(System.console().readLine());
                 System.out.println("Please enter the universe of the product: ");
                 universe = System.console().readLine();
-                service.addProdukt(name, price, universe);
+                service.addProduct(name, price, universe);
                 showMenu();
 
             case 2:
                 System.out.println("Please enter the id of the product: ");
                 id = Integer.parseInt(System.console().readLine());
-                Product product = service.getProdukt(id);
+                Product product = service.getProduct(id);
                 System.out.println(product);
                 showMenu();
 
@@ -69,23 +69,23 @@ public class Console {
                 System.out.println("Please enter the name of the product: ");
                 name = System.console().readLine();
                 System.out.println("Please enter the price of the product: ");
-                price = Integer.parseInt(System.console().readLine());
+                price = Double.parseDouble(System.console().readLine());
                 System.out.println("Please enter the universe: ");
                 universe = System.console().readLine();
-                service.updateProdukt(id, name, price, universe);
+                service.updateProduct(id, name, price, universe);
                 showMenu();
 
 
             case 4:
                 System.out.println("Please enter the id of the product: ");
                 id = Integer.parseInt(System.console().readLine());
-                service.deleteProdukt(id);
+                service.deleteProduct(id);
                 showMenu();
 
             case 5:
 
                 ArrayList<Product> products = new ArrayList<>();
-                products = service.getAllProdukts();
+                products = service.getAllProducts();
                 for (Product product1 : products) {
                     System.out.println(product1);
                 }

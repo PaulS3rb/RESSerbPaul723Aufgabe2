@@ -3,7 +3,7 @@ package model;
 public class Product extends Entity {
 
     String name;
-    int price;
+    double price;
     String universe;
 
     @Override
@@ -16,7 +16,7 @@ public class Product extends Entity {
                 '}';
     }
 
-    public Product(int id, String name, int price, String universe) {
+    public Product(int id, String name, double price, String universe) {
         super(id);
         this.name = name;
         this.price = price;
@@ -35,11 +35,11 @@ public class Product extends Entity {
         this.name = name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
