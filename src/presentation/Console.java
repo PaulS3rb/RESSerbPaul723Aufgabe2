@@ -151,7 +151,14 @@ public class Console {
 
 
             case 13:
-
+                System.out.println("Enter the universe");
+                universe = System.console().readLine();
+                characters = service.filterCharactersByProductUniverse(universe);
+                for(Character character1 : characters)
+                {
+                    System.out.println(character1);
+                }
+                showMenu();
 
 
         }

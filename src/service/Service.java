@@ -1,7 +1,5 @@
 package service;
 
-import java.util.*;
-
 import model.Character;
 import model.Product;
 //import model.Character;
@@ -9,7 +7,6 @@ import repository.IRepository;
 import repository.Repository;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 public class Service {
 
@@ -139,6 +136,25 @@ public class Service {
                 filteredCharacters.add(character);
             }
         }
+        return filteredCharacters;
+    }
+
+    public List<Character> filterCharactersByProductUniverse(String universe) {
+
+        List<Character> filteredCharacters = new ArrayList<>();
+        List<Character> characters = characterRepository.getAll();
+        List<Product> products = new ArrayList<>();
+        for (Character character : characters) {
+            products = character.getProducts();
+            for(Product product : products){
+                if(product.getUniverse().equals(universe)){
+                    filteredCharacters.add(character);
+                    break;
+                }
+
+            }
+        }
+        filteredCharacters.sort((p1,p2)->p2.getName().compareToIgnoreCase(p1.getName()));
         return filteredCharacters;
     }
 
