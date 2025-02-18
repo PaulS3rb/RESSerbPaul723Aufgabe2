@@ -158,4 +158,18 @@ public class Service {
         return filteredCharacters;
     }
 
+    public ArrayList<Product> sortProductsByPriceForCharacter(int characterId, int mode) {
+
+        Character character = characterRepository.read(characterId);
+        ArrayList<Product> products = character.getProducts();
+        if(mode==1)
+        {
+            products.sort((p1,p2) -> (int) (p1.getPrice() - p2.getPrice()));
+        }
+        if(mode==2)
+        {
+            products.sort((p1,p2)-> (int) (p2.getPrice() - p1.getPrice()));
+        }
+        return products;
+    }
 }

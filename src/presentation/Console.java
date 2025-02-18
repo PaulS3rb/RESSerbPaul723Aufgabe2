@@ -161,6 +161,15 @@ public class Console {
                 showMenu();
 
 
+            case 14:
+                System.out.println("Please enter the id of the character: ");
+                characterId = Integer.parseInt(System.console().readLine());
+                System.out.println("Please enter 1 for ascending or 2 for descending order ");
+                int mode = Integer.parseInt(System.console().readLine());
+                products = service.sortProductsByPriceForCharacter(characterId, mode);
+                System.out.println(products);
+                showMenu();
+
         }
     }
 }
