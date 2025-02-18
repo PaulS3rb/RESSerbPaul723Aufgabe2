@@ -18,16 +18,20 @@ public class Service {
     {
         this.productRepository =Repository.getInstance(Product.class);
         List<Product> produkte = new ArrayList<>();
-//        produkte.add(new Product("Mjolnir", 500.0, "Asgard"));
-//        produkte.add(new Product("Vibranium-Schild", 700.0, "Wakanda"));
-//        produkte.add(new Product("Infinity Gauntlet", 10000.0, "Titan"));
-//        produkte.add(new Product("Web-Shooter", 250.0, "Terra"));
-//        produkte.add(new Product("Arc-Reaktor", 1500.0, "Terra"));
-//        produkte.add(new Product("Norn Stones", 1200.0, "Asgard"));
-//        produkte.add(new Product("Quantum Suit", 3000.0, "Terra"));
-//        produkte.add(new Product("X-Gene Serum", 850.0, "X-Mansion"));
-//        produkte.add(new Product("Cosmic Cube", 9000.0, "Multiverse"));
-//        produkte.add(new Product("Darkhold", 2000.0, "Multiverse"));
+        produkte.add(new Product(1,"Mjolnir", 500.0, "Asgard"));
+        produkte.add(new Product(2,"Vibranium-Schild", 700.0, "Wakanda"));
+        produkte.add(new Product(3,"Infinity Gauntlet", 10000.0, "Titan"));
+        produkte.add(new Product(4,"Web-Shooter", 250.0, "Terra"));
+        produkte.add(new Product(5,"Arc-Reaktor", 1500.0, "Terra"));
+        produkte.add(new Product(6,"Norn Stones", 1200.0, "Asgard"));
+        produkte.add(new Product(7,"Quantum Suit", 3000.0, "Terra"));
+        produkte.add(new Product(8,"X-Gene Serum", 850.0, "X-Mansion"));
+        produkte.add(new Product(9,"Cosmic Cube", 9000.0, "Multiverse"));
+        produkte.add(new Product(10,"Darkhold", 2000.0, "Multiverse"));
+        for(Product p : produkte)
+        {
+            productRepository.create(p);
+        }
 
     }
 
